@@ -16,6 +16,7 @@ const hints: Record<string, string> = {
   "Numbered List": "Used to display a numbered list",
   "Bullet List": "Used to display an unordered list",
   Paragraph: "Used for the body of your document",
+  Subtopic: "Used for creating a section within a topic",
 };
 
 const shortcuts: Record<string, string> = {
@@ -25,6 +26,7 @@ const shortcuts: Record<string, string> = {
   "Numbered List": formatKeyboardShortcut("Mod-Alt-7"),
   "Bullet List": formatKeyboardShortcut("Mod-Alt-8"),
   Paragraph: formatKeyboardShortcut("Mod-Alt-0"),
+  Subtopic: formatKeyboardShortcut("Mod-Alt-9"),
 };
 
 export function SlashMenu(props: SlashMenuProps) {
@@ -57,6 +59,10 @@ export function SlashMenu(props: SlashMenuProps) {
     }
 
     if (item.name === "Paragraph") {
+      basicBlockGroup.push(item);
+    }
+
+    if (item.name === "Subtopic") {
       basicBlockGroup.push(item);
     }
   }

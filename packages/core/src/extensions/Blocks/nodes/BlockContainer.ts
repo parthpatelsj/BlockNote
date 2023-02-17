@@ -546,6 +546,11 @@ export const BlockContainer = Node.create<IBlock>({
           type: "numberedListItem",
           props: {},
         }),
+      "Mod-Shift-9": () =>
+        this.editor.commands.BNUpdateBlock(this.editor.state.selection.anchor, {
+          type: "subtopic",
+          props: {},
+        }),
     };
   },
 });

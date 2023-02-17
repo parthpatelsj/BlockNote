@@ -3,3 +3,11 @@ body,
 #root {
   height: 100%;
 }
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: lightslategrey;
+  color: white;
+  font-size: 30px;
+}

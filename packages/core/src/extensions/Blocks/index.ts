@@ -5,12 +5,14 @@ import { ParagraphBlockContent } from "./nodes/BlockContent/ParagraphBlockConten
 import { HeadingBlockContent } from "./nodes/BlockContent/HeadingBlockContent/HeadingBlockContent";
 import { BulletListItemBlockContent } from "./nodes/BlockContent/ListItemBlockContent/BulletListItemBlockContent/BulletListItemBlockContent";
 import { NumberedListItemBlockContent } from "./nodes/BlockContent/ListItemBlockContent/NumberedListItemBlockContent/NumberedListItemBlockContent";
+import { SubtopicBlockContent } from "./nodes/BlockContent/SubtopicBlockContent/SubtopicBlockContent";
 
 export const blocks: any[] = [
   ParagraphBlockContent,
   HeadingBlockContent,
   BulletListItemBlockContent,
   NumberedListItemBlockContent,
+  SubtopicBlockContent,
   BlockContainer,
   BlockGroup,
   Node.create({

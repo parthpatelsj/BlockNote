@@ -73,6 +73,13 @@ export const FormattingToolbar = (props: FormattingToolbarProps) => {
   };
 
   const getActiveBlock = () => {
+    if (props.block.type === "subtopic") {
+      return {
+        text: "Subtopic",
+        icon: RiH3,
+      };
+    }
+
     if (props.block.type === "heading") {
       if (props.block.props.level === "1") {
         return {
@@ -125,6 +132,16 @@ export const FormattingToolbar = (props: FormattingToolbarProps) => {
         text={activeBlock!.text}
         icon={activeBlock!.icon}
         items={[
+          {
+            onClick: () =>
+              props.updateBlock({
+                type: "subtopic",
+                props: {},
+              }),
+            text: "Subtopic",
+            icon: RiH3,
+            isSelected: props.block.type === "subtopic",
+          },
           {
             onClick: () =>
               props.updateBlock({

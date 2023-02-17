@@ -31,9 +31,12 @@ export type HeadingBlock = BlockSpec<
   }
 >;
 
+export type SubtopicBlock = BlockSpec<"subtopic", {}>;
+
 export type ParagraphBlock = BlockSpec<"paragraph", {}>;
 
 export type Block =
+  | SubtopicBlock
   | ParagraphBlock
   | HeadingBlock
   | BulletListItemBlock
