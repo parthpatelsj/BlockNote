@@ -2,6 +2,7 @@
 import "@blocknote/core/style.css";
 import { BlockNoteView, useBlockNote } from "@blocknote/react";
 import styles from "./App.module.css";
+import TopicTitle from "./TopicHandler/TopicTitle";
 
 type WindowWithProseMirror = Window & typeof globalThis & { ProseMirror: any };
 
@@ -19,7 +20,12 @@ function App() {
     },
   });
 
-  return <BlockNoteView editor={editor} />;
+  return (
+    <>
+      <TopicTitle />
+      <BlockNoteView editor={editor} />;
+    </>
+  );
 }
 
 export default App;
