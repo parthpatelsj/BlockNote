@@ -44,6 +44,10 @@ export type FormattingToolbarProps = {
   setTextColor: (color: string) => void;
   backgroundColor: string;
   setBackgroundColor: (color: string) => void;
+  textLanguage: string;
+  setTextLanguage: (language: string) => void;
+  textLocation: string;
+  setTextLocation: (color: string) => void;
   textAlignment: "left" | "center" | "right" | "justify";
   setTextAlignment: (
     textAlignment: "left" | "center" | "right" | "justify"

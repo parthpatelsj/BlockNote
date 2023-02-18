@@ -266,6 +266,17 @@ export class FormattingToolbarView {
         );
         this.editor.view.focus();
       },
+      setTextLocation: (location: string) => {
+        this.editor.view.focus();
+        this.editor.commands.setTextLocation(location);
+        // this.editor.commands.setContent(location);
+      },
+      setTextLanguage: (language: string) => {
+        console.log("Seting textLanguage: ", language);
+        this.editor.view.focus();
+        this.editor.commands.setTextLanguage(language);
+        // this.editor.commands.setContent(language);
+      },
       setTextColor: (color: string) => {
         this.editor.view.focus();
         this.editor.commands.setTextColor(color);

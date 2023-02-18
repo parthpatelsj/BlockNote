@@ -30,6 +30,8 @@ import { TextColorMark } from "./extensions/TextColor/TextColorMark";
 import { BackgroundColorExtension } from "./extensions/BackgroundColor/BackgroundColorExtension";
 import { TextColorExtension } from "./extensions/TextColor/TextColorExtension";
 import { TextAlignmentExtension } from "./extensions/TextAlignment/TextAlignmentExtension";
+import { TextLanguageExtension } from "./extensions/TextLanguage/TextLanguageExtension";
+import { TextLocationExtension } from "./extensions/TextLocation/TextLocationExtension";
 
 export type UiFactories = Partial<{
   formattingToolbarFactory: FormattingToolbarFactory;
@@ -77,6 +79,8 @@ export const getBlockNoteExtensions = (uiFactories: UiFactories) => {
     Underline,
     TextColorMark,
     TextColorExtension,
+    TextLanguageExtension,
+    TextLocationExtension,
     BackgroundColorMark,
     BackgroundColorExtension,
     TextAlignmentExtension,

@@ -412,6 +412,43 @@ export class BlockMenuView {
     this.editor.commands.BNDeleteBlock(pos.pos);
   }
 
+  setBlockLanguage(language: string) {
+    this.menuOpen = false;
+    this.blockMenu.hide();
+
+    const blockContentBoundingBox =
+      this.hoveredBlockContent!.getBoundingClientRect();
+
+    const pos = this.editor.view.posAtCoords({
+      left: blockContentBoundingBox.left + blockContentBoundingBox.width / 2,
+      top: blockContentBoundingBox.top + blockContentBoundingBox.height / 2,
+    });
+    if (!pos) {
+      return;
+    }
+
+    this.editor.commands.setBlockTextLanguage(pos.pos, language);
+    // this.editor.commands.setContent("<p> Content for: " + language + "</p>");
+  }
+
+  setBlockLocation(location: string) {
+    this.menuOpen = false;
+    this.blockMenu.hide();
+
+    const blockContentBoundingBox =
+      this.hoveredBlockContent!.getBoundingClientRect();
+
+    const pos = this.editor.view.posAtCoords({
+      left: blockContentBoundingBox.left + blockContentBoundingBox.width / 2,
+      top: blockContentBoundingBox.top + blockContentBoundingBox.height / 2,
+    });
+    if (!pos) {
+      return;
+    }
+
+    this.editor.commands.setBlockTextLocation(pos.pos, location);
+  }
+
   setBlockBackgroundColor(color: string) {
     this.menuOpen = false;
     this.blockMenu.hide();
@@ -463,6 +500,8 @@ export class BlockMenuView {
       setBlockBackgroundColor: (color: string) =>
         this.setBlockBackgroundColor(color),
       setBlockTextColor: (color: string) => this.setBlockTextColor(color),
+      setBlockLanguage: (language: string) => this.setBlockLanguage(language),
+      setBlockLocation: (location: string) => this.setBlockLocation(location),
     };
   }
 
@@ -474,6 +513,8 @@ export class BlockMenuView {
       blockBackgroundColor:
         this.editor.getAttributes("blockContainer").backgroundColor,
       blockTextColor: this.editor.getAttributes("blockContainer").textColor,
+      blockLanguage: this.editor.getAttributes("blockContainer").textLanguage,
+      blockLocation: this.editor.getAttributes("blockContainer").textLocation,
       referenceRect: new DOMRect(
         this.horizontalPosAnchoredAtRoot
           ? this.horizontalPosAnchor

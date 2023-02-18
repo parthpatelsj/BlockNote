@@ -8,6 +8,8 @@ export type FormattingToolbarStaticParams = {
   toggleStrike: () => void;
   setHyperlink: (url: string, text?: string) => void;
 
+  setTextLocation: (location: string) => void;
+  setTextLanguage: (language: string) => void;
   setTextColor: (color: string) => void;
   setBackgroundColor: (color: string) => void;
   setTextAlignment: (

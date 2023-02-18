@@ -2,6 +2,7 @@ import { AiOutlinePlus, MdDragIndicator } from "react-icons/all";
 import { ActionIcon, createStyles, Group, Menu } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { ColorPickerMenu } from "./ColorPickerMenu";
+import { LangLocPickerMenu } from "./LangLocPickerMenu";
 
 export type BlockSideMenuProps = {
   addBlock: () => void;
@@ -15,6 +16,11 @@ export type BlockSideMenuProps = {
   setBlockBackgroundColor: (color: string) => void;
   blockTextColor: string;
   setBlockTextColor: (color: string) => void;
+
+  blockLocation: string;
+  setBlockLocation: (location: string) => void;
+  blockLanguage: string;
+  setBlockLanguage: (language: string) => void;
 };
 
 export const BlockSideMenu = (props: BlockSideMenuProps) => {
@@ -79,6 +85,13 @@ export const BlockSideMenu = (props: BlockSideMenuProps) => {
             }}>
             Delete
           </Menu.Item>
+          <LangLocPickerMenu
+            onClick={() => {
+              setDragHandleMenuOpened(false);
+              props.unfreezeMenu();
+            }}
+            {...props}
+          />
           <ColorPickerMenu
             onClick={() => {
               setDragHandleMenuOpened(false);

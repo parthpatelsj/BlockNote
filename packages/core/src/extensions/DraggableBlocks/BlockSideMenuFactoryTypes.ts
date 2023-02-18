@@ -12,12 +12,16 @@ export type BlockSideMenuStaticParams = {
 
   setBlockTextColor: (color: string) => void;
   setBlockBackgroundColor: (color: string) => void;
+
+  setBlockLocation: (location: string) => void;
+  setBlockLanguage: (language: string) => void;
 };
 
 export type BlockSideMenuDynamicParams = {
   blockTextColor: string;
   blockBackgroundColor: string;
-
+  blockLocation: string;
+  blockLanguage: string;
   referenceRect: DOMRect;
 };
 
