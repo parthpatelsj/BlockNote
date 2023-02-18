@@ -108,6 +108,12 @@ NESTED BLOCKS
   margin-left: 0;
 }
 
+/* SUBTOPICS */
+[data-content-type="subtopic"] {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
 /* HEADINGS*/
 [data-level="1"] {
   --level: 3em;

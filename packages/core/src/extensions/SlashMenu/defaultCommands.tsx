@@ -56,7 +56,7 @@ const defaultCommands: { [key: string]: SlashMenuItem } = {
         })
         .run();
     },
-    ["subtopic"]
+    ["s", "sub", "subtopic"]
   ),
 
   // Command for creating an ordered list

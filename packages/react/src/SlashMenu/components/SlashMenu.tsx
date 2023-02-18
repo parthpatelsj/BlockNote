@@ -10,9 +10,6 @@ export type SlashMenuProps = {
 };
 
 const hints: Record<string, string> = {
-  Heading: "Used for a top-level heading",
-  "Heading 2": "Used for key sections",
-  "Heading 3": "Used for subsections and group headings",
   "Numbered List": "Used to display a numbered list",
   "Bullet List": "Used to display an unordered list",
   Paragraph: "Used for the body of your document",
@@ -20,9 +17,6 @@ const hints: Record<string, string> = {
 };
 
 const shortcuts: Record<string, string> = {
-  Heading: formatKeyboardShortcut("Mod-Alt-1"),
-  "Heading 2": formatKeyboardShortcut("Mod-Alt-2"),
-  "Heading 3": formatKeyboardShortcut("Mod-Alt-3"),
   "Numbered List": formatKeyboardShortcut("Mod-Alt-7"),
   "Bullet List": formatKeyboardShortcut("Mod-Alt-8"),
   Paragraph: formatKeyboardShortcut("Mod-Alt-0"),
@@ -34,22 +28,13 @@ export function SlashMenu(props: SlashMenuProps) {
     name: "SlashMenu",
   });
 
-  const headingGroup: SlashMenuItem[] = [];
+  const blockDescriptor: SlashMenuItem[] = [];
   const basicBlockGroup: SlashMenuItem[] = [];
 
   for (const item of props.items) {
-    if (item.name === "Heading") {
-      headingGroup.push(item);
+    if (item.name === "Subtopic") {
+      blockDescriptor.push(item);
     }
-
-    if (item.name === "Heading 2") {
-      headingGroup.push(item);
-    }
-
-    if (item.name === "Heading 3") {
-      headingGroup.push(item);
-    }
-
     if (item.name === "Numbered List") {
       basicBlockGroup.push(item);
     }
@@ -61,21 +46,17 @@ export function SlashMenu(props: SlashMenuProps) {
     if (item.name === "Paragraph") {
       basicBlockGroup.push(item);
     }
-
-    if (item.name === "Subtopic") {
-      basicBlockGroup.push(item);
-    }
   }
 
   const renderedItems: any[] = [];
   let index = 0;
 
-  if (headingGroup.length > 0) {
+  if (blockDescriptor.length > 0) {
     renderedItems.push(
-      <Menu.Label key={"Headings Label"}>{"Headings"}</Menu.Label>
+      <Menu.Label key={"Blocks"}>{"Block Elements"}</Menu.Label>
     );
 
-    for (const item of headingGroup) {
+    for (const item of blockDescriptor) {
       renderedItems.push(
         <ReactSlashMenuItem
           key={item.name}

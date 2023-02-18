@@ -9,7 +9,7 @@ export const SubtopicBlockContent = Node.create({
   parseHTML() {
     return [
       {
-        tag: "h3",
+        tag: "h2",
         priority: 200,
         node: "blockContainer",
       },
@@ -23,7 +23,7 @@ export const SubtopicBlockContent = Node.create({
         class: styles.blockContent,
         "data-content-type": this.name,
       }),
-      ["h3", 0],
+      ["h2", 0],
     ];
   },
 });

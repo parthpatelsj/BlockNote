@@ -1,6 +1,6 @@
 export type BlockSpec<
   // Type of the block.
-  // Examples might include: "paragraph", "heading", or "bulletListItem".
+  // Examples might include: "paragraph", "subtopic", or "bulletListItem".
   Type extends string,
   // Changeable props which affect the block's behaviour or appearance.
   // An example might be: { textAlignment: "left" | "right" | "center" | "justify" } for a paragraph block.
@@ -24,13 +24,6 @@ export type NumberedListItemBlock = BlockSpec<"numberedListItem", {}>;
 
 export type BulletListItemBlock = BlockSpec<"bulletListItem", {}>;
 
-export type HeadingBlock = BlockSpec<
-  "heading",
-  {
-    level: "1" | "2" | "3";
-  }
->;
-
 export type SubtopicBlock = BlockSpec<"subtopic", {}>;
 
 export type ParagraphBlock = BlockSpec<"paragraph", {}>;
@@ -38,7 +31,6 @@ export type ParagraphBlock = BlockSpec<"paragraph", {}>;
 export type Block =
   | SubtopicBlock
   | ParagraphBlock
-  | HeadingBlock
   | BulletListItemBlock
   | NumberedListItemBlock;
 
