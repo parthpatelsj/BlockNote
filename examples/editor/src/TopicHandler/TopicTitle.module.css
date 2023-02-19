@@ -2,22 +2,6 @@
   outline: 0;
 }
 
-input {
-  display: block;
-  min-width: 90%;
-  margin: 1em 1em 1em 0.5em;
-  padding: 1em;
-  width: 43em;
-  border-radius: 8px;
-  border-style: none;
-  border: 1px solid #e4e6e8;
-  transition: 0.1s ease;
-}
-
-input:hover {
-  border-color: lightsalmon;
-}
-
 .topicButton {
   float: right;
   margin: 0.8em;
@@ -35,4 +19,89 @@ button:hover {
 
 .topicSubmission {
   padding: 0 calc((100% - 731px) / 2);
+}
+
+.topicTitle {
+  border: none;
+  background-color: none;
+  outline: 0;
+  font-size: 25px;
+  width: 100%;
+  height: 30px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+.topicTitle::placeholder {
+  color: lightgrey;
+}
+
+.topicHeader {
+  border: none;
+  background-color: none;
+  outline: 0;
+  font-size: 20px;
+  width: 100%;
+  height: 30px;
+  padding-bottom: 20px;
+}
+
+.topicHeader::placeholder {
+  color: lightgrey;
+}
+
+.topicDescription {
+  border: none;
+  background-color: none;
+  outline: 0;
+  font-size: 15px;
+  width: 100%;
+  height: 30px;
+  padding-bottom: 20px;
+}
+
+.topicDescription::placeholder {
+  color: lightgrey;
+}
+
+/* .topicTitle input[type="text"] {
+  border: none;
+  background-color: none;
+  outline: 0;
+  width: 300px;
+  height: 30px;
+} */
+
+/* 
+input[type="text"] {
+  border: none;
+  background-color: none;
+  outline: 0;
+  font-size: 20px;
+  width: 300px;
+  height: 30px;
+} */
+
+input[type="text"]:focus {
+  border: none;
+  background-color: none;
+  outline: 0;
+  width: 300px;
+  height: 30px;
+}
+
+.dropzone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #eeeeee;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border 0.24s ease-in-out;
 }

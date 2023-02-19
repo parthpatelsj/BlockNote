@@ -1,4 +1,10 @@
-import { AiOutlinePlus, MdDragIndicator } from "react-icons/all";
+import {
+  AiOutlinePlus,
+  MdDragIndicator,
+  AiOutlineGlobal,
+  MdLocationOn,
+  MdLanguage,
+} from "react-icons/all";
 import { ActionIcon, createStyles, Group, Menu } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { ColorPickerMenu } from "./ColorPickerMenu";
@@ -29,6 +35,8 @@ export const BlockSideMenu = (props: BlockSideMenuProps) => {
   });
 
   const [dragHandleMenuOpened, setDragHandleMenuOpened] = useState(false);
+  const [dragHandleLocationOpened, setDragHandleLocationOpened] =
+    useState(false);
 
   const dragHandleRef = useRef<HTMLDivElement>(null);
 
@@ -50,6 +58,53 @@ export const BlockSideMenu = (props: BlockSideMenuProps) => {
 
   return (
     <Group spacing={0}>
+      {/* Location */}
+      <Menu opened={dragHandleLocationOpened} width={100} position={"left"}>
+        <Menu.Target>
+          <ActionIcon
+            onClick={() => {
+              setDragHandleLocationOpened(true);
+              props.freezeMenu();
+            }}
+            size={24}
+            color={"brandFinal.3"}>
+            {<MdLocationOn size={24} />}
+          </ActionIcon>
+        </Menu.Target>
+        <Menu.Dropdown className={classes.root}>
+          <LangLocPickerMenu
+            onClick={() => {
+              setDragHandleLocationOpened(false);
+              props.unfreezeMenu();
+            }}
+            {...props}
+          />
+        </Menu.Dropdown>
+      </Menu>
+
+      {/* Language */}
+      {/* <Menu opened={dragHandleLocationOpened} width={100} position={"left"}>
+        <Menu.Target>
+          <ActionIcon
+            onClick={() => {
+              setDragHandleLocationOpened(true);
+            }}
+            size={24}
+            color={"brandFinal.3"}>
+            {<MdLanguage size={24} />}
+          </ActionIcon>
+        </Menu.Target>
+        <Menu.Dropdown className={classes.root}>
+          <LangLocPickerMenu
+            onClick={() => {
+              setDragHandleMenuOpened(false);
+              props.unfreezeMenu();
+            }}
+            {...props}
+          />
+        </Menu.Dropdown>
+      </Menu> */}
+
       <ActionIcon size={24} color={"brandFinal.3"} data-test={"dragHandleAdd"}>
         {
           <AiOutlinePlus
@@ -85,13 +140,6 @@ export const BlockSideMenu = (props: BlockSideMenuProps) => {
             }}>
             Delete
           </Menu.Item>
-          <LangLocPickerMenu
-            onClick={() => {
-              setDragHandleMenuOpened(false);
-              props.unfreezeMenu();
-            }}
-            {...props}
-          />
           <ColorPickerMenu
             onClick={() => {
               setDragHandleMenuOpened(false);

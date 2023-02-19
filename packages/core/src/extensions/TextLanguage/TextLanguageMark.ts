@@ -3,12 +3,12 @@ import { Mark } from "@tiptap/core";
 declare module "@tiptap/core" {
   interface Commands<ReturnType> {
     textLanguage: {
-      setTextLanguage: (color: string) => ReturnType;
+      setTextLanguage: (language: string) => ReturnType;
     };
   }
 }
 
-export const TextColorMark = Mark.create({
+export const TextLanguageMark = Mark.create({
   name: "textLanguage",
 
   addAttributes() {
@@ -33,7 +33,7 @@ export const TextColorMark = Mark.create({
           }
 
           if (element.hasAttribute("data-text-language")) {
-            return { color: element.getAttribute("data-text-language") };
+            return { language: element.getAttribute("data-text-language") };
           }
 
           return false;
@@ -54,10 +54,10 @@ export const TextColorMark = Mark.create({
           console.log("within setTextLanguage: ", language);
           if (language !== "default") {
             console.log(language);
-            return commands.setContent(language);
+            return commands.setContent("<p>" + language + "</p>");
           }
 
-          return commands.setContent(language);
+          return commands.setContent("<p>" + language + "</p>");
         },
     };
   },

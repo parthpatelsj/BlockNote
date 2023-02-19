@@ -33,7 +33,7 @@ export const TextLocationMark = Mark.create({
           }
 
           if (element.hasAttribute("data-text-location")) {
-            return { color: element.getAttribute("data-text-location") };
+            return { location: element.getAttribute("data-text-location") };
           }
 
           return false;
@@ -54,10 +54,10 @@ export const TextLocationMark = Mark.create({
           console.log("within setTextLocation: ", location);
           if (location !== "default") {
             console.log(location);
-            return commands.setContent(location);
+            return commands.setContent("<p>" + location + "</p>");
           }
 
-          return commands.setContent(location);
+          return commands.setContent("<p>" + location + "</p>");
         },
     };
   },
