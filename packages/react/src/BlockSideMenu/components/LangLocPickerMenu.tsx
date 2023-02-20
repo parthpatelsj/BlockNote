@@ -56,7 +56,7 @@ export const LangLocPickerMenu = (props: {
             <HiChevronRight size={15} />
           </Box>
         }>
-        Language
+        {props.blockLanguage}-{props.blockLocation}
       </Menu.Item>
       <Menu.Dropdown
         // @ts-ignore

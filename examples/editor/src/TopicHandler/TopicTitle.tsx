@@ -88,9 +88,6 @@ const TopicTitle = () => {
     </div>
   ));
 
-  const buttonStyle =
-    "float: 'right'; margin: '0.8em'; padding: '1em'; border: '1px solid #e4e6e8'; border-radius: '5px'; cursor: 'pointer'; transition: '0.1s ease-in';";
-
   const updateFormData = (event: React.ChangeEvent<HTMLInputElement>) =>
     setFormData({
       ...formData,
@@ -106,43 +103,13 @@ const TopicTitle = () => {
 
   return (
     <form style={{ padding: "0 calc((100% - 731px) / 2)" }}>
-      <button
-        style={{
-          float: "right",
-          margin: "0.8em 0em 0.8em 0.8em",
-          padding: "1em",
-          border: "1px solid #e4e6e8",
-          cursor: "pointer",
-          transition: "0.1s ease-in",
-          borderRadius: "5px",
-        }}
-        type="submit">
+      <button className={topicStyles.topicButton} type="submit">
         Submit for Review
       </button>
-      <button
-        style={{
-          float: "right",
-          margin: "0.8em",
-          padding: "1em",
-          border: "1px solid #e4e6e8",
-          cursor: "pointer",
-          transition: "0.1s ease-in",
-          borderRadius: "5px",
-        }}
-        type="button">
+      <button className={topicStyles.topicButton} type="button">
         Save Draft
       </button>
-      <button
-        style={{
-          float: "right",
-          margin: "0.8em",
-          padding: "1em",
-          border: "1px solid #e4e6e8",
-          cursor: "pointer",
-          transition: "0.1s ease-in",
-          borderRadius: "5px",
-        }}
-        type="button">
+      <button className={topicStyles.topicButton} type="button">
         Cancel
       </button>
       <div

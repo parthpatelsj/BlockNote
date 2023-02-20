@@ -11,7 +11,7 @@ export const LangLocalPicker = (props: {
   return (
     <>
       <Menu.Label>Language</Menu.Label>
-      {["English", "French", "Spanish"].map((language) => (
+      {["en", "fr", "sp"].map((language) => (
         <Menu.Item
           onClick={() => {
             props.onClick && props.onClick();
@@ -33,7 +33,7 @@ export const LangLocalPicker = (props: {
         </Menu.Item>
       ))}
       <Menu.Label>Location</Menu.Label>
-      {["Global", "UK", "USA", "London", "Robinsville", "San Jose"].map(
+      {["gl", "uk", "us", "london", "robinsville", "sanjose"].map(
         (location) => (
           <Menu.Item
             onClick={() => {
