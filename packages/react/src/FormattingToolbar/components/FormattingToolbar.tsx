@@ -77,11 +77,27 @@ export const FormattingToolbar = (props: FormattingToolbarProps) => {
   };
 
   const getActiveBlock = () => {
-    if (props.block.type === "subtopic") {
-      return {
-        text: "Subtopic",
-        icon: RiH3,
-      };
+    if (props.block.type === "heading") {
+      if (props.block.props.level === "1") {
+        return {
+          text: "Heading 1",
+          icon: RiH1,
+        };
+      }
+
+      if (props.block.props.level === "2") {
+        return {
+          text: "Heading 2",
+          icon: RiH2,
+        };
+      }
+
+      if (props.block.props.level === "3") {
+        return {
+          text: "Heading 3",
+          icon: RiH3,
+        };
+      }
     }
 
     if (props.block.type === "bulletListItem") {
@@ -113,16 +129,6 @@ export const FormattingToolbar = (props: FormattingToolbarProps) => {
         text={activeBlock!.text}
         icon={activeBlock!.icon}
         items={[
-          {
-            onClick: () =>
-              props.updateBlock({
-                type: "subtopic",
-                props: {},
-              }),
-            text: "Subtopic",
-            icon: RiH3,
-            isSelected: props.block.type === "subtopic",
-          },
           {
             onClick: () =>
               props.updateBlock({

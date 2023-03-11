@@ -10,17 +10,21 @@ export type SlashMenuProps = {
 };
 
 const hints: Record<string, string> = {
+  Heading: "Used for a top-level heading",
+  "Heading 2": "Used for key sections",
+  "Heading 3": "Used for subsections and group headings",
   "Numbered List": "Used to display a numbered list",
   "Bullet List": "Used to display an unordered list",
   Paragraph: "Used for the body of your document",
-  Subtopic: "Used for creating a section within a topic",
 };
 
 const shortcuts: Record<string, string> = {
+  Heading: formatKeyboardShortcut("Mod-Alt-1"),
+  "Heading 2": formatKeyboardShortcut("Mod-Alt-2"),
+  "Heading 3": formatKeyboardShortcut("Mod-Alt-3"),
   "Numbered List": formatKeyboardShortcut("Mod-Alt-7"),
   "Bullet List": formatKeyboardShortcut("Mod-Alt-8"),
   Paragraph: formatKeyboardShortcut("Mod-Alt-0"),
-  Subtopic: formatKeyboardShortcut("Mod-Alt-9"),
 };
 
 export function SlashMenu(props: SlashMenuProps) {
@@ -32,7 +36,15 @@ export function SlashMenu(props: SlashMenuProps) {
   const basicBlockGroup: SlashMenuItem[] = [];
 
   for (const item of props.items) {
-    if (item.name === "Subtopic") {
+    if (item.name === "Heading") {
+      blockDescriptor.push(item);
+    }
+
+    if (item.name === "Heading 2") {
+      blockDescriptor.push(item);
+    }
+
+    if (item.name === "Heading 3") {
       blockDescriptor.push(item);
     }
     if (item.name === "Numbered List") {

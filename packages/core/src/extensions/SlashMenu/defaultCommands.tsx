@@ -44,19 +44,22 @@ const defaultCommands: { [key: string]: SlashMenuItem } = {
   ),
 
   // Command for creating a level 3 heading
-  subtopic: new SlashMenuItem(
-    "Subtopic",
+  heading3: new SlashMenuItem(
+    "Heading 3",
     (editor: Editor, range: Range) => {
       return editor
         .chain()
         .focus()
         .deleteRange(range)
         .BNCreateOrUpdateBlock(range.from, {
-          type: "subtopic",
+          type: "heading",
+          props: {
+            level: "3",
+          },
         })
         .run();
     },
-    ["s", "sub", "subtopic"]
+    ["h3", "heading3", "subheading"]
   ),
 
   // Command for creating an ordered list

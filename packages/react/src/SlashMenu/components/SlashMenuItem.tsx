@@ -64,9 +64,6 @@ export function SlashMenuItem(props: SlashMenuItemProps) {
   // TODO: rearchitect, this is hacky
   let Icon: IconType | undefined;
   switch (props.name) {
-    case "Subtopic":
-      Icon = RiH3;
-      break;
     case "Heading":
       Icon = RiH1;
       break;

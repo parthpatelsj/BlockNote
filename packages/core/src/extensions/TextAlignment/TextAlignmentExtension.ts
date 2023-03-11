@@ -19,7 +19,7 @@ export const TextAlignmentExtension = Extension.create({
       {
         // Attribute is applied to block content instead of container so that child blocks don't inherit the text
         // alignment styling.
-        types: ["paragraph", "bulletListItem", "numberedListItem", "subtopic"],
+        types: ["paragraph", "bulletListItem", "numberedListItem", "heading"],
         attributes: {
           textAlignment: {
             default: "left",
